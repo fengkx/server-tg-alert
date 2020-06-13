@@ -1,0 +1,36 @@
+name: 'Server Alert In Telegram'
+description: 'Send alert to your telegram when server resource usage touch the upper bound'
+branding:
+  icon: 'activity'
+  color: 'blue'
+inputs:
+  mem_used_bound:
+    description: 'Memroy usage upper bound (0-100) > 100 to disable'
+    required: true
+  cpu_used_bound:
+    description: 'CPU loading upper bound (0-100) > 100 to disable'
+    required: true
+  avg_cpu_used_bound:
+    description: 'CPU average loading upper bound (0-100) > 100 to disable'
+    required: true
+  disk_used_bound:
+    description: 'Disk usage upper bound (0-100) > 100 to disable'
+    required: true
+  telegram_bot_token:
+    description: 'Telegram Bot API'
+    required: true
+  send_to:
+    description: 'Telegram chat id where receive the message'
+    required: true
+  stat_api:
+    description: 'Data API'
+    required: true
+  disply_name:
+    description: 'Give your server a cool name'
+    required: true
+outputs:
+  telegram_message: # output will be available to future steps
+    description: 'message in markdown'
+runs:
+  using: 'node12'
+  main: 'dist/action.js'
