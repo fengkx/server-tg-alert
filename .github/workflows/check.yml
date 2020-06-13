@@ -9,8 +9,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-     - name: Check Certificates
-       uses: fengkx/cert-check@1.0.0
+     - name: Server Alert In Telegram
+       uses: fengkx/server-tg-alert@0.0.1
        with:
          mem_used_bound: '99'
          cpu_used_bound: '95'
