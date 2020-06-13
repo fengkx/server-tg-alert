@@ -1,0 +1,22 @@
+name: Server TG Alert
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  push:
+    branches:
+      - master
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check Certificates
+       uses: fengkx/cert-check@1.0.0
+       with:
+         mem_used_bound: '99'
+         cpu_used_bound: '95'
+         avg_cpu_used_bound: '90'
+         disk_used_bound: '80'
+         disply_name: 'DO'
+         telegram_bot_token:  ${{ secrets.TG_TOKEN }}
+         stat_api: ${{ secrets.API_URL }}
+         send_to: ${{ secrets.SEND_TO }}
