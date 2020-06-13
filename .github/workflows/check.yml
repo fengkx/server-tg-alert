@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Server Alert In Telegram
-       uses: fengkx/server-tg-alert@0.0.1
+       uses: fengkx/server-tg-alert@1.0.0
        with:
          mem_used_bound: '99'
          cpu_used_bound: '95'
