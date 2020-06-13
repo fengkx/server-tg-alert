@@ -21,6 +21,7 @@ async function run() {
 
         const resp = await fetch(API_URL)
         data = await resp.json()
+        core.debug(data);
     } catch (e) {
         core.setFailed('Failed to request API')
     }

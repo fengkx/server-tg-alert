@@ -190,10 +190,10 @@ var require_core = __commonJS((exports) => {
     return process.env["RUNNER_DEBUG"] === "1";
   }
   exports.isDebug = isDebug;
-  function debug(message) {
+  function debug2(message) {
     command_1.issueCommand("debug", {}, message);
   }
-  exports.debug = debug;
+  exports.debug = debug2;
   function error(message) {
     command_1.issue("error", message instanceof Error ? message.toString() : message);
   }
@@ -1277,6 +1277,7 @@ async function run() {
   try {
     const resp = await index_default(API_URL);
     data = await resp.json();
+    core.debug(data);
   } catch (e) {
     core.setFailed("Failed to request API");
   }
